@@ -56,13 +56,13 @@
         <link rel="stylesheet" href="chat.css" />
       </head>
       <body>
-        <div id="view_ajax"></div>
         <div id="ajaxForm">
           <!-- <input type="text" id="chatInput" /> -->
           <textarea name='chatInput' id='chatInput' rows='4' cols='15' maxlength='200' style='display: block; width: 90%; margin: 0 auto;' onkeyDown='return ismaxlength(this)'></textarea>
           <input type="button" value="Send" id="btnSend" />
           <input size='1' class='small' type='text' id='counter' value='200'>
         </div>
+        <div id="view_ajax"></div>
       </body>
     </html>
 <?php endif ?>

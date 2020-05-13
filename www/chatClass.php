@@ -8,7 +8,7 @@
       $jsonData = '{"results":[';
       $db_connection = new mysqli( mysqlServer, mysqlUser, mysqlPass, mysqlDB);
       $db_connection->query( "SET NAMES 'UTF8'" );
-      $statement = $db_connection->prepare( "SELECT id, usrname, color, chattext, chattime FROM chat WHERE id > ?"); ## and chattime >= DATE_SUB(NOW(), INTERVAL 72 HOUR)
+      $statement = $db_connection->prepare( "SELECT id, usrname, color, chattext, chattime FROM chat WHERE id > ? ORDER BY id DESC"); ## and chattime >= DATE_SUB(NOW(), INTERVAL 72 HOUR)
       $statement->bind_param( 'i', $id);
       $statement->execute();
       $statement->bind_result( $id, $usrname, $color, $chattext, $chattime);

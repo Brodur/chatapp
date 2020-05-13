@@ -11,6 +11,17 @@ if(!empty($_GET['chattext'])){
     // Ensure that the chat text is not empty, and does not exceed 200 characters
     if(strlen($chattext) <= 200 && strlen($chattext) > 0){
         chatClass::setChatLines( $chattext, $_SESSION['usrname'], $_SESSION['color']);
+        print('{"success":true}');
+    }
+    else{
+        $jsonData = '';
+        $result = new stdClass;
+        $result->success = false;
+        $result->length = strlen($chattext);
+        $result->chattext = $chattext;
+        $arr[] = json_encode($result);
+        $jsonData .= implode(",", $arr);
+        print $jsonData;
     }
 }
 

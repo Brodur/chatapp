@@ -24,7 +24,7 @@ function getChatText() {
     var html = "";
     for (var i = 0; i < jsonLength; i++) {
       var result = jsonData.results[i];
-      html += '<div style="color:#' + result.color + '">(' + result.chattime + ') <b>' + result.usrname +'</b>: ' + result.chattext + '</div>';
+      html += '<div>(' + result.chattime + ') <b>' + result.usrname +'</b>: ' + result.chattext + '</div>';
       if(result.id > lastTimeID){
         lastTimeID = result.id;
       }

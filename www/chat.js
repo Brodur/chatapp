@@ -43,8 +43,7 @@ function sendChatText(){
     {
       var jsonData = JSON.parse(data);
       if(jsonData.success == false){
-        var html = '<div"><b>System</b>: Chat submit failed, try using fewer characters. Backend length was reported at: ' + jsonData["length"] + 
-        '<br/>Original Message:<br/>"' + jsonData["chattext"] +'"<br/></div>';
+        var html = '<div"><b>System</b>: Chat submit failed, try using fewer characters. Backend length was reported at <b>' + jsonData["length"] + '</b> characters.<br/></div>';
         $('#view_ajax').prepend(html);
       }
     });

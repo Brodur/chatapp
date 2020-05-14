@@ -31,7 +31,7 @@
       $db_connection = new mysqli( mysqlServer, mysqlUser, mysqlPass, mysqlDB);
       $db_connection->query( "SET NAMES 'UTF8'" );
       $statement = $db_connection->prepare( "INSERT INTO chat( usrname, chattext) VALUES(?, ?)");
-      $statement->bind_param( 'sss', $usrname, $chattext);
+      $statement->bind_param( 'ss', $usrname, $chattext);
       $statement->execute();
       $statement->close();
       $db_connection->close();

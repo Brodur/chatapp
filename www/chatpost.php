@@ -10,7 +10,7 @@ if(!empty($_GET['chattext'])){
     $chattext = htmlspecialchars($chattext);
     // Ensure that the chat text is not empty, and does not exceed 200 characters
     if(strlen($chattext) <= 200 && strlen($chattext) > 0){
-        chatClass::setChatLines( $chattext, $_SESSION['usrname'], $_SESSION['color']);
+        chatClass::setChatLines($chattext, $_SESSION['usrname']);
         print('{"success":true}');
     }
     else{

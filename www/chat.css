@@ -10,7 +10,7 @@ body{
   height: 300px; 
   border: 1px solid #333;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 #ajaxForm{
@@ -19,6 +19,7 @@ body{
   width: 500px; 
   height: 50px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 #chatInput{

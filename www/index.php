@@ -1,48 +1,40 @@
 <?php
-  session_start();
+// ----------------------------------------------------------------------
+// Copyright (c) 2007 by Tammy Keefer
+// Based on eFiction 1.1
+// Copyright (C) 2003 by Rebecca Smallwood.
+// http://efiction.sourceforge.net/
+// ----------------------------------------------------------------------
+// LICENSE
+//
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License (GPL)
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// To read the license please visit http://www.gnu.org/copyleft/gpl.html
+// ----------------------------------------------------------------------
+
+$current = "home";
+
+include ("header.php");
+
+//make a new TemplatePower object
+
+if(file_exists("$skindir/index.tpl")) $tpl = new TemplatePower( "$skindir/index.tpl" );
+else $tpl = new TemplatePower("default_tpls/index.tpl");
+//let TemplatePower do its thing, parsing etc.
+
+include("includes/pagesetup.php");
+$query = dbquery("SELECT message_text FROM ".TABLEPREFIX."fanfiction_messages WHERE message_name = 'welcome'");
+list($welcome) = dbrow($query);
+$tpl->assign("welcome", stripslashes($welcome));
+
+$tpl->printToScreen();
+dbclose( );
 ?>
-<?php if(!IsSet($_SESSION[ "usrname" ]) || $_SESSION[ "usrname" ] == ""): ?>
-    <!-- Not logged in -->
-<html>
-  <head>
-    <title>Chat Room Example</title>
-    <link rel="stylesheet" href="chat.css" />
-  </head>
-  <body>
-    <h1>Please choose a nickname</h1>
-    <form action="login.php" method="post">
-      <table cellpadding="5" cellspacing="0" border="0">
-        <tr>
-          <td align="left" valign="top">Nickname :</td>
-          <td align="left" valign="top">
-            <input type="text" name="usrname" />
-          </td>
-        </tr>
-        <tr>
-          <td align="left" valign="top"></td>
-          <td align="left" valign="top"><input type="submit" value="Login" /></td>
-        </tr>
-      </table>
-    </form>
-  </body>
-</html>
-<?php else: ?> 
-    <!-- Logged in -->
-    <html>
-      <head>
-        <title>Chat Room Example</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="chat.js"></script>
-        <link rel="stylesheet" href="chat.css" />
-      </head>
-      <body>
-        <div id="ajaxForm">
-          <!-- <input type="text" id="chatInput" /> -->
-          <textarea name='chatInput' id='chatInput' rows='4' cols='15' maxlength='200' style='display: block; width: 90%; margin: 0 auto;' onkeyDown='return ismaxlength(this)'></textarea>
-          <input type="button" value="Send" id="btnSend" />
-          <input size='1' class='small' type='text' id='counter' value='200'>
-        </div>
-        <div id="view_ajax"></div>
-      </body>
-    </html>
-<?php endif ?>

@@ -35,7 +35,7 @@ if(isMEMBER || !empty($blocks['shoutbox']['guestshouts'])) {
 			  url: $('#shoutbox').attr('action'),
 			  data: $.extend($('#shoutbox'), {'shout' : '"._SHOUT."'}).serialize(),
 			  success: function () {
-				alert('form was submitted');
+				location.reload();
 				$('#shout_message').val(\"\");
 			  }
 			});

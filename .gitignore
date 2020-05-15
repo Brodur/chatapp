@@ -1,3 +1,12 @@
 #Ignore Everything
 /www/*
-!/www/blocks/shoutbox/*
+!/www/
+/www/blocks/*
+!/www/blocks/
+!/www/blocks/shoutbox/
+/www/blocks/shoutbox/admin.php
+/www/blocks/shoutbox/archive.php
+/www/blocks/shoutbox/en.php
+/www/blocks/shoutbox/index.php
+/www/blocks/shoutbox/init.php
+/www/blocks/shoutbox/README.txt

@@ -33,7 +33,7 @@ if(isMEMBER || !empty($blocks['shoutbox']['guestshouts'])) {
 			$.ajax({
 			  type: 'post',
 			  url: $('#shoutbox').attr('action'),
-			  data: $.extend($('#shoutbox'), {'shout' : '"._SHOUT."'}).serialize(),
+			  data: $('#shoutbox').serialize(),
 			  success: function () {
 				location.reload();
 				$('#shout_message').val(\"\");
